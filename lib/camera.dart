@@ -255,15 +255,20 @@ class _CameraState extends State<Camera> {
       maxWidth:
           screenRatio > previewRatio ? screenH / previewH * previewW : screenW,
       child: GestureDetector(
-          onScaleUpdate:(one){
-            // print(one.scale);
-
-            scale = one.scale;
-
-            controller.setZoomLevel(scale);
-
+          //Making to Reset the Zoom Level on Double Tap
+          onDoubleTap: (){
+            controller.setZoomLevel(1.0);
             setState(() {});
           },
+          // onScaleUpdate:(one){
+          //   print(one.scale);
+          //
+          //   scale = one.scale;
+          //
+          //   controller.setZoomLevel(scale);
+          //
+          //   setState(() {});
+          // },
 
           child: cameraPreview
 
