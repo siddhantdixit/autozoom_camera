@@ -22,6 +22,8 @@ class _CameraState extends State<Camera> {
   CameraController controller;
   bool isDetecting = false;
 
+  double scale = 1.0;
+
   @override
   void initState() {
     super.initState();
@@ -125,12 +127,58 @@ class _CameraState extends State<Camera> {
     var screenRatio = screenH / screenW;
     var previewRatio = previewH / previewW;
 
+
+    var cameraPreview = new CameraPreview(controller);
+
+
     return OverflowBox(
       maxHeight:
           screenRatio > previewRatio ? screenH : screenW / previewW * previewH,
       maxWidth:
           screenRatio > previewRatio ? screenH / previewH * previewW : screenW,
-      child: CameraPreview(controller),
+      child: GestureDetector(
+          onScaleUpdate:(one){
+            print(one.scale);
+
+            scale = one.scale;
+
+            controller.setZoomLevel(scale);
+
+            setState(() {});
+          },
+
+          child: cameraPreview
+
+      )
     );
+
+/*
+
+    if (!controller.value.isInitialized) {
+      return new Container();
+    }
+
+    var cameraPreview = new CameraPreview(controller);
+
+    return new GestureDetector(
+        onScaleUpdate:(one){
+          print(one.scale);
+
+          scale = one.scale;
+          setState(() {});
+        },
+
+        child: new Transform.scale(
+            scale: scale,
+            child: new AspectRatio(
+                aspectRatio: controller.value.aspectRatio,
+                child: cameraPreview
+            )
+        )
+
+
+    );
+
+ */
   }
 }
