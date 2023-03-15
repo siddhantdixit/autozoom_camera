@@ -97,6 +97,23 @@ class _CameraState extends State<Camera> {
 
                 widget.setRecognitions(recognitions, img.height, img.width);
 
+
+                if(recognitions.isNotEmpty) {
+                  recognitions.sort((b, a) =>
+                  a["confidenceInClass"].compareTo(b["confidenceInClass"]));
+
+                  var bestRecog = recognitions[0];
+                  var truePercent = (bestRecog["confidenceInClass"] * 100);
+                  var _x = bestRecog["rect"]["x"];
+                  var _w = bestRecog["rect"]["w"];
+                  var _y = bestRecog["rect"]["y"];
+                  var _h = bestRecog["rect"]["h"];
+
+                  print("==============Best Recognition =====================");
+                  print("${bestRecog["detectedClass"]} : ${truePercent}          x=${_x} y=${_y} w=${_w} h=${_h}");
+                  print("===================== ==============================");
+
+                }
                 isDetecting = false;
               });
             }
@@ -138,7 +155,7 @@ class _CameraState extends State<Camera> {
           screenRatio > previewRatio ? screenH / previewH * previewW : screenW,
       child: GestureDetector(
           onScaleUpdate:(one){
-            print(one.scale);
+            // print(one.scale);
 
             scale = one.scale;
 

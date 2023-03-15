@@ -43,6 +43,11 @@ class BndBox extends StatelessWidget {
           if (_y < difH / 2) h -= (difH / 2 - _y) * scaleH;
         }
 
+        var truePercent = (re["confidenceInClass"] * 100);
+        if(truePercent < 50) return SizedBox();
+
+        print("${re["detectedClass"]} : ${truePercent}          x=${_x} y=${_y} w=${_w} h=${_h}");
+
         return Positioned(
           left: math.max(0, x),
           top: math.max(0, y),
