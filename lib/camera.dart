@@ -3,6 +3,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'package:tflite/tflite.dart';
+import 'package:flutter_restart/flutter_restart.dart';
+
 import 'dart:math' as math;
 
 import 'models.dart';
@@ -281,6 +283,10 @@ class _CameraState extends State<Camera> {
                   ),
                 ),
               );
+
+              final result = await FlutterRestart.restartApp();
+              print(result);
+
 
             } catch (e) {
               // If an error occurs, log the error to the console.

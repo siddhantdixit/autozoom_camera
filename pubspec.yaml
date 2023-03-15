@@ -25,6 +25,7 @@ dev_dependencies:
     sdk: flutter
 
   camera:
+  flutter_restart: ^0.0.3
 
   tflite: 1.0.4
   
