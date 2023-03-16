@@ -1,3 +1,25 @@
+# AutoZoom Camera using Realtime Detection
+
+
+Autozoom camera using real-time object detection in Flutter involves using the device camera to detect objects in real-time and automatically zooming in or out to focus on the detected object.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 For details: https://medium.com/@shaqian629/real-time-object-detection-in-flutter-b31c7ff9ef96
 
 # flutter_realtime_detection
