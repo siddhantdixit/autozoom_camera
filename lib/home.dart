@@ -80,21 +80,39 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
+                  Text('Auto Zoom',style: TextStyle(
+                    fontSize: 30,
+                  ),),
+                  SizedBox(
+                    height: 80,
+                  ),
                   ElevatedButton(
                     child: const Text(ssd),
                     onPressed: () => onSelect(ssd),
+                  ),
+                  SizedBox(
+                    height: 20,
                   ),
                   ElevatedButton(
                     child: const Text(yolo),
                     onPressed: () => onSelect(yolo),
                   ),
+                  SizedBox(
+                    height: 20,
+                  ),
                   ElevatedButton(
                     child: const Text(mobilenet),
                     onPressed: () => onSelect(mobilenet),
                   ),
+                  SizedBox(
+                    height: 20,
+                  ),
                   ElevatedButton(
                     child: const Text(posenet),
                     onPressed: () => onSelect(posenet),
+                  ),
+                  SizedBox(
+                    height: 20,
                   ),
                 ],
               ),
