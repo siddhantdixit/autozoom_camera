@@ -8,9 +8,12 @@ Auto-zoom camera using real-time object detection in Flutter involves using the 
 
 Steps involved:
 
-- Set up a camera preview in Flutter using the camera plugin. This will allow you to stream the camera feed to your app.
+- Firstly, We set up a camera preview in Flutter using the camera plugin. This will allow us to stream the camera feed to your app.
 
-- Use a real-time object detection library such as tflite_flutter to detect objects in the camera feed. These libraries use the following machine learning models to identify objects in the camera feed in real-time.
+- Used a real-time object detection library such as tflite_flutter to detect objects in the camera feed. These libraries use the following machine learning models to identify objects in the camera feed in real-time.
+
+1. SSD Mobilenet
+2. YOLO
 
 - Calculate the bounding box of the detected objects. The bounding box is a rectangle that encompasses the detected object. Get the boundary box of most accurate object.
 
