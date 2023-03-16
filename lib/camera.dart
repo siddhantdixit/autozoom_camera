@@ -187,7 +187,7 @@ class _CameraState extends State<Camera> {
                 imageStd: widget.model == yolo ? 255.0 : 127.5,
                 numResultsPerClass: 1,
                 threshold: widget.model == yolo ? 0.2 : 0.4,
-              ).then((recognitions) {
+              ).then((recognitions) async {
                 int endTime = new DateTime.now().millisecondsSinceEpoch;
                 print("Detection took ${endTime - startTime}");
 
@@ -216,7 +216,7 @@ class _CameraState extends State<Camera> {
 
 
                   var zoomReq = percentageToZoomLevel(val);
-                  controller.setZoomLevel(zoomReq);
+                  await controller.setZoomLevel(zoomReq);
 
                 }
                 isDetecting = false;
